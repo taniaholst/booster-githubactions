@@ -19,3 +19,21 @@ jobs:
             run: npm ci
           - name: Build
             run: npm run build
+    test:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
+          - name: Install dependencies
+            run: npm ci
+          - name: Test
+            run: npm run test
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
+          - name: Install dependencies
+            run: npm ci
+          - name: Link check
+            run: npm run lint:check
