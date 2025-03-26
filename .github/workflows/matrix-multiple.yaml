@@ -1,0 +1,24 @@
+name: Matrices with multiple variables
+
+on: push
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node-version: [14, 16]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Run build script
+        run: echo "Building on ${{ matrix.os }} with Node.js ${{ matrix.node-version }}"
