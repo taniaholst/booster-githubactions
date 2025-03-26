@@ -49,4 +49,4 @@ jobs:
             with:
                 issue-number: ${{ github.event.pull_request.number }}
                 body: |
-                    All jobs have finished! 🎉
+                    All jobs have finished!! 🎉
