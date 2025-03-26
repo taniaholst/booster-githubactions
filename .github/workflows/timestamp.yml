@@ -1,0 +1,12 @@
+name: Timestamp
+
+on:
+    schedule:
+        - cron: "*/5 * * * *" # Run every five minutes
+
+jobs:
+    timestamp:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Timestamp
+            run: echo "The time is $(date)"
