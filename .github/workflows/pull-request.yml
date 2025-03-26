@@ -42,6 +42,8 @@ jobs:
     
     post-comment:
         runs-on: ubuntu-latest
+        permissions:
+            pull-requests: write
         needs: [build, lint, test]
         steps:
           - name: Post comment
@@ -49,4 +51,4 @@ jobs:
             with:
                 issue-number: ${{ github.event.pull_request.number }}
                 body: |
-                    All jobs have finished! 🎉
+                    All jobs have finished!! 🎉
