@@ -1,16 +1,30 @@
 name: Workflow dispatch inputs and security verification
 
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        type: string
-        description: Input your message
+    workflow_dispatch:
+        inputs:
+            message:
+                type: string
+                description: Input your message
+    
+            lang-selector:  
+                type: choice
+                description: Choose your language
+                options:
+                  - English
+                  - Norsk
 
 jobs:
-  hello-message-job:
-    name: Hello message
+  hello-english-job:
+    if: inputs.lang-selector == 'English'
     runs-on: ubuntu-latest
     steps:
       - name: Print message to terminal
         run: echo "Hello ${{ inputs.message }}!"
+  
+  hello-norsk-job:  
+    if: inputs.lang-selector == 'Norsk'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message to terminal
+        run: echo "Hei ${{ inputs.message }}!"
