@@ -35,6 +35,6 @@ jobs:
         needs: deploy
         steps:
           - name: Run Lighthouse checks
-            uses: treosh/lighthouse-ci-action@v10
+            uses: treosh/lighthouse-ci-action@v12
             with:
                 urls: ${{ needs.deploy.outputs.page_url }}
